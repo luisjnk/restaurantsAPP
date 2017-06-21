@@ -1,21 +1,23 @@
 <template>
   <div class="restaurantsList">
-  <b-card-group>
-    <div v-for="restaurant in restaurantsList">
-      <b-card 
-              img="http://placeskull.com/200/200/ABABAB/-1/0"
-              title="Skulls are nice"
-              class="mb-3"
-      >
-          `{{restaurant.Name}}
-      </b-card>
+    <div class="panel panel-info" v-for="restaurant in restaurantsList" v-on:click="click(restaurant.Id)">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{restaurant.Name}}</h3>
       </div>
-    </b-card-group>
+      <div class="panel-body">
+         {{restaurant.City}} ,
+         {{restaurant.Country}}
+         <p>
+         {{restaurant.Address}}
+         </p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import RequestsService from '../services/requestsService.js'
+import router from '../router'
 export default {
   name: 'hello',
   data () {
@@ -35,6 +37,11 @@ export default {
               })
       },
     },
+     methods: {
+      click(Id) {
+       router.push({ name: 'restaurant', params: { restaurantId: Id }})
+      }
+     },
    beforeCreate () {
            navigator.geolocation
                   .getCurrentPosition(event => {
