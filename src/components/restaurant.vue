@@ -34,33 +34,27 @@
              <span>Contact : {{restaurant.contact.formattedPhone}}</span>
              </p>
             <a v-bind:href="restaurant.shortUrl">{{restaurant.name}} FourSquare Link</a>
+            </p>
+            <div class="row">
+              <div class="col-md-8">
+							<div class="profile-info-right">
+								<ul class="nav nav-pills nav-pills-custom-minimal custom-minimal-bottom">
+									<li class="active"><a href="#activities"  v-on:click="changeActivity('activities')" data-toggle="tab">Restaurant Desciptions</a></li>
+									<li><a href="#userdesc" v-on:click="changeActivity('useractivity')" data-toggle="tab">Users Desciptions</a></li>
+									<li><a href="#yourdesc" v-on:click="changeActivity('youractivity')"data-toggle="tab">Insert your description</a></li>
+								</ul>
+                <div class="tab-content">
+                <div class="tab-pane fade in active" id="activities">
+                    <restaurantDescriptionList v-if="activities == 'activities'"></restaurantDescriptionList>
+                    <restaurantUsersDescriptionList v-if="activities == 'useractivity'"></restaurantUsersDescriptionList>
+                    <restaurantYourDescription v-if="activities == 'youractivity'"></restaurantYourDescription>
+                </div>
+                </div>  
+							</div>
+						</div>
+            </div>
         </div>  
-        	<!-- faq -->
-	<div class="faq app-pages app-section">
-		<div class="container">
-			<div class="pages-title">
-				<h3></h3>
-			</div>
-			<div class="entry">
-				<ul class="collapsible" data-collapsible="accordion"> 
-					<li>
-						<div class="collapsible-header faq-collapsible">
-							How was your experience ? <i v-on:click="open()" class="fa fa-plus"></i>
-						</div>
-						<div class="collapsible-body">
-		
-              <input type="text" placeholder="Name">
-              <input type="text" placeholder="Title">
-              <textarea name="" id="" cols="30" rows="10" placeholder="Additional Message"></textarea>
-              <button type="button" class="button">Submit</button>
-            </form>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>	
-	<!-- end faq -->	
+        </div>	
 </div>
 	
  </div>
@@ -72,6 +66,9 @@
 import RequestsService from '../services/requestsService.js'
 import * as VueGoogleMaps from 'vue2-google-maps';
 import Vue from 'vue';
+import restaurantDescriptionList from './restaurantDescriptionList'
+import restaurantYourDescription from './restaurantYourDescription'
+import restaurantUsersDescriptionList from './restaurantUsersDescriptionList'
 
   Vue.use(VueGoogleMaps, {
     load: {
@@ -82,6 +79,11 @@ import Vue from 'vue';
 
 
 export default {
+  components: {
+    restaurantDescriptionList,
+    restaurantYourDescription,
+    restaurantUsersDescriptionList
+  },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
@@ -89,7 +91,8 @@ export default {
       center: '',
         markers: [{
           position: ''
-        }]
+        }],
+     activities : 'activities'   
     }
   }, 
    beforeCreate () {
@@ -108,11 +111,8 @@ export default {
             })
    },
    methods: {
-      open() {
-         find('span i').toggleClass('fa-chevron-down')
-      },
-      close(){
-
+      changeActivity(activity) {
+        this.activities = activity
       }
      }
   

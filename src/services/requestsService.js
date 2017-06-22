@@ -15,5 +15,11 @@ export default {
     return request
         .then(result => { console.log(result); return result.data.message; })
         .catch(error => { console.error(error); throw error; });
-    }  
+    },
+    insertRestaurtantExperience(description) {
+        const request = axios .post(process.env.APIURL + 'like')
+        return request
+        .then(result => { console.log(result); return result.data.message; })
+        .catch(error => { console.error(error); throw error; });
+    }   
 }
