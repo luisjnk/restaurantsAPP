@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../static/css/owl.theme.css">
     <link rel="stylesheet" href="../static/css/owl.transitions.css">
     <link rel="stylesheet" href="../static/css/style.css">	
-
+    	<!-- script -->
 	<div class="navbar">
 		<div class="container">
 			<div class="site-title">
@@ -47,6 +47,11 @@
 </template>
 
 <script>
+import custom from '../static/js/custom.js'
+import jquery from '../static/js/jquery.min.js'
+import jquslickery from "../static/js/slick.min.js"
+
+
 export default {
   name: 'app'
 }

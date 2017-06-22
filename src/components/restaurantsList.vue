@@ -1,6 +1,6 @@
 <template>
 <div class="chef app-pages app-section">
-		<div class="container">
+		<div v-if="lat != '' && long!=''" class="container">
 			<div class="pages-title">
 				<h3>Restaurants near to you</h3>
 			</div>
@@ -16,16 +16,22 @@
 						<span class=""><i class="fa fa-star"></i></span>
 					</div>
 					<p><span>Address:</span> <a href="">{{restaurant.Address}}</a></p>
-					<ul>
-						<li><a href=""><i class="fa fa-envelope"></i></a></li>
-						<li><a href=""><i class="fa fa-facebook"></i></a></li>
-						<li><a href=""><i class="fa fa-twitter"></i></a></li>
-						<li><a href=""><i class="fa fa-linkedin"></i></a></li>
-						<li><a href=""><i class="fa fa-link"></i></a></li>
-					</ul>
+          <p><span>Contact:</span> <a href="">{{restaurant.Contact}}</a></p>
 				</div>
 			</div>
      </div>
+     <div v-else class="slider-slick app-pages">
+        <div class="slider-entry">     
+          <div class="overlay"></div>
+          <div class="caption">
+            <div class="container">
+              <h2>Impossible access your location</h2>
+              <p>Can you enable your location ?</p>
+  
+            </div>
+          </div>
+        </div>
+    </div>
    </div>    
   
 	<!-- end offers -->
@@ -34,6 +40,7 @@
 
 <script>
 import RequestsService from '../services/requestsService.js'
+
 import router from '../router'
 export default {
   name: 'hello',

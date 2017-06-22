@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div  v-if="restaurant != ''">
   <!-- slider -->
 	<div class="slider-slick app-pages">
 		<div class="slider-entry">
@@ -9,7 +9,7 @@
                     style="width: 2000px; height: 500px"
                 >
                  <gmap-marker
-                          :key="index"
+                        :key="index"
                         v-for="(m, index) in markers"
                         :position="m.position"
                         :clickable="true"
@@ -23,11 +23,10 @@
 	</div>
 	<!-- end slider -->
     <div class="jumbotron">
-        <div  v-if="restaurant != ''" class="container">
+        <div  class="container">
             <h1>{{restaurant.name}}</h1>
             <span v-if=" restaurant.likes && restaurant.likes.count">Peoples who likes this restaurant : {{restaurant.likes.count}}</span>
             <span v-else>Nobody likes this restaurant yet</span>
-            
             </p>
              <span v-if=" restaurant.location && restaurant.location.address">Address : {{restaurant.location.address}}</span>
              <span v-else>Don't have Adress</span>
@@ -35,8 +34,33 @@
              <span>Contact : {{restaurant.contact.formattedPhone}}</span>
              </p>
             <a v-bind:href="restaurant.shortUrl">{{restaurant.name}} FourSquare Link</a>
-  
-        </div>
+        </div>  
+        	<!-- faq -->
+	<div class="faq app-pages app-section">
+		<div class="container">
+			<div class="pages-title">
+				<h3></h3>
+			</div>
+			<div class="entry">
+				<ul class="collapsible" data-collapsible="accordion"> 
+					<li>
+						<div class="collapsible-header faq-collapsible">
+							How was your experience ? <i v-on:click="open()" class="fa fa-plus"></i>
+						</div>
+						<div class="collapsible-body">
+		
+              <input type="text" placeholder="Name">
+              <input type="text" placeholder="Title">
+              <textarea name="" id="" cols="30" rows="10" placeholder="Additional Message"></textarea>
+              <button type="button" class="button">Submit</button>
+            </form>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>	
+	<!-- end faq -->	
 </div>
 	
  </div>
@@ -73,6 +97,7 @@ export default {
             .getRestaurant(this.$route.params.restaurantId)
               .then(respose =>{
                   this.restaurant = respose
+                  
                   this.markers[0].position = {lat: respose.location.lat, lng: respose.location.lng}
                 console.log(this.restaurant)
         })
@@ -81,7 +106,15 @@ export default {
                   .getCurrentPosition(event => {
                       this.center =  {lat: event.coords.latitude, lng: event.coords.longitude}
             })
-   }
+   },
+   methods: {
+      open() {
+         find('span i').toggleClass('fa-chevron-down')
+      },
+      close(){
+
+      }
+     }
   
 }
 </script>
