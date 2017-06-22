@@ -1,18 +1,48 @@
 <template>
   <div id="app">
-     <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/materialize.min.css">
+    <link rel="stylesheet" href="../static/css/slick.css">
+    <link rel="stylesheet" href="../static/css/slick-theme.css">
+    <link rel="stylesheet" href="../static/css/owl.carousel.css">
+    <link rel="stylesheet" href="../static/css/owl.theme.css">
+    <link rel="stylesheet" href="../static/css/owl.transitions.css">
+    <link rel="stylesheet" href="../static/css/style.css">	
 
-          </button>
-          <a class="navbar-brand" href="#">Restaurants APP</a>
-        </div>
-
-      </div><!-- /.container-fluid -->
-    </nav>
+	<div class="navbar">
+		<div class="container">
+			<div class="site-title">
+				<a href="#" class="logo"><h1>Restaurant </h1></a>
+			</div>
+		</div>
+	</div>
     <router-view></router-view>
+    	<!-- footer -->
+	<footer>
+		<div class="container">
+			<h6>Find & follow us</h6>
+			<ul class="icon-social">
+				<li class="facebook"><a href=""><i class="fa fa-facebook"></i></a></li>
+				<li class="twitter"><a href=""><i class="fa fa-twitter"></i></a></li>
+				<li class="google"><a href=""><i class="fa fa-google"></i></a></li>
+				<li class="instagram"><a href=""><i class="fa fa-instagram"></i></a></li>
+				<li class="rss"><a href=""><i class="fa fa-rss"></i></a></li>
+			</ul>
+			<div class="tel-fax-mail">
+				<ul>
+					<li><span>Tel:</span> 900000002</li>
+					<li><span>Fax:</span> 0400000098</li>
+					<li><span>Email:</span> luisjnk@gmail.com</li>
+				</ul>
+			</div>
+			<div class="ft-bottom">
+				<span> </span>
+			</div>
+		</div>
+	</footer>
+	<!-- end footer -->
+	
   </div>
 </template>
 
@@ -23,12 +53,5 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>

@@ -1,19 +1,36 @@
 <template>
-  <div class="restaurantsList">
-    <div class="panel panel-info" v-for="restaurant in restaurantsList" v-on:click="click(restaurant.Id)">
-      <div class="panel-heading">
-        <h3 class="panel-title">{{restaurant.Name}}</h3>
-      </div>
-      <div class="panel-body">
-         {{restaurant.City}} ,
-         {{restaurant.Country}}
-         <p>
-         {{restaurant.Address}}
-         </p>
-      </div>
-    </div>
-  </div>
-</template>
+<div class="chef app-pages app-section">
+		<div class="container">
+			<div class="pages-title">
+				<h3>Restaurants near to you</h3>
+			</div>
+      <div class="entry" v-for="restaurant in restaurantsList" v-on:click="click(restaurant.Id)">
+				<img src="img/chef1.png" alt="">
+				<div class="content">
+					<h5>{{restaurant.Name}}</h5>
+					<div class="rating">
+						<span class="active"><i class="fa fa-star"></i></span>
+						<span class="active"><i class="fa fa-star"></i></span>
+						<span class="active"><i class="fa fa-star"></i></span>
+						<span class="active"><i class="fa fa-star"></i></span>
+						<span class=""><i class="fa fa-star"></i></span>
+					</div>
+					<p><span>Address:</span> <a href="">{{restaurant.Address}}</a></p>
+					<ul>
+						<li><a href=""><i class="fa fa-envelope"></i></a></li>
+						<li><a href=""><i class="fa fa-facebook"></i></a></li>
+						<li><a href=""><i class="fa fa-twitter"></i></a></li>
+						<li><a href=""><i class="fa fa-linkedin"></i></a></li>
+						<li><a href=""><i class="fa fa-link"></i></a></li>
+					</ul>
+				</div>
+			</div>
+     </div>
+   </div>    
+  
+	<!-- end offers -->
+
+ </template>
 
 <script>
 import RequestsService from '../services/requestsService.js'
@@ -57,9 +74,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#app {
-  padding: 20px;
-  height: 500px;
-}
+
 
 </style>

@@ -1,5 +1,27 @@
 <template>
   <div>
+  <!-- slider -->
+	<div class="slider-slick app-pages">
+		<div class="slider-entry">
+			       <gmap-map
+                    :center="markers[0].position"
+                    :zoom="18"
+                    style="width: 2000px; height: 500px"
+                >
+                 <gmap-marker
+                          :key="index"
+                        v-for="(m, index) in markers"
+                        :position="m.position"
+                        :clickable="true"
+                        :draggable="true"
+                        @click="center=m.position"
+                    ></gmap-marker>
+                </gmap-map> 
+			<div class="caption">
+			</div>
+		</div>
+	</div>
+	<!-- end slider -->
     <div class="jumbotron">
         <div  v-if="restaurant != ''" class="container">
             <h1>{{restaurant.name}}</h1>
@@ -13,28 +35,10 @@
              <span>Contact : {{restaurant.contact.formattedPhone}}</span>
              </p>
             <a v-bind:href="restaurant.shortUrl">{{restaurant.name}} FourSquare Link</a>
-     
-             
-            <div v-if="restaurant != '' && center !=''">
-             <gmap-map
-                    :center="center"
-                    :zoom="15"
-                    style="width: 500px; height: 300px"
-                >
-                    <gmap-marker
-                          :key="index"
-                        v-for="(m, index) in markers"
-                        :position="m.position"
-                        :clickable="true"
-                        :draggable="true"
-                        @click="center=m.position"
-                    ></gmap-marker>
-                </gmap-map> 
-            
-        
-            </div>
+  
         </div>
 </div>
+	
  </div>
 
 </template>
