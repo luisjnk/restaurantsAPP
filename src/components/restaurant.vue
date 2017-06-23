@@ -39,13 +39,11 @@
               <div class="col-md-8">
 							<div class="profile-info-right">
 								<ul class="nav nav-pills nav-pills-custom-minimal custom-minimal-bottom">
-									<li class="active"><a href="#activities"  v-on:click="changeActivity('activities')" data-toggle="tab">Restaurant Desciptions</a></li>
-									<li><a href="#userdesc" v-on:click="changeActivity('useractivity')" data-toggle="tab">Users Desciptions</a></li>
+									<li class="active"><a href="#activities"  v-on:click="changeActivity('useractivity')" data-toggle="tab">Users Desciptions</a></li>
 									<li><a href="#yourdesc" v-on:click="changeActivity('youractivity')"data-toggle="tab">Insert your description</a></li>
 								</ul>
                 <div class="tab-content">
                 <div class="tab-pane fade in active" id="activities">
-                    <restaurantDescriptionList v-if="activities == 'activities'"></restaurantDescriptionList>
                     <restaurantUsersDescriptionList v-if="activities == 'useractivity'"></restaurantUsersDescriptionList>
                     <restaurantYourDescription v-if="activities == 'youractivity'"></restaurantYourDescription>
                 </div>
@@ -66,7 +64,6 @@
 import RequestsService from '../services/requestsService.js'
 import * as VueGoogleMaps from 'vue2-google-maps';
 import Vue from 'vue';
-import restaurantDescriptionList from './restaurantDescriptionList'
 import restaurantYourDescription from './restaurantYourDescription'
 import restaurantUsersDescriptionList from './restaurantUsersDescriptionList'
 
@@ -80,7 +77,6 @@ import restaurantUsersDescriptionList from './restaurantUsersDescriptionList'
 
 export default {
   components: {
-    restaurantDescriptionList,
     restaurantYourDescription,
     restaurantUsersDescriptionList
   },
@@ -92,7 +88,7 @@ export default {
         markers: [{
           position: ''
         }],
-     activities : 'activities'   
+     activities : 'useractivity'   
     }
   }, 
    beforeCreate () {

@@ -1,6 +1,6 @@
 # restaurantsapp
 
-> A Vue.js project
+> Restaurants APP is a vue project
 
 ## Build Setup
 
@@ -25,6 +25,25 @@ npm run e2e
 
 # run all tests
 npm test
+
+# Start production TES
+
+npm start
+```
+## Deploy
+
+``` bash
+# Heroku
+Go to pipelines master and deploy
+
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Need DO
+
+``` bash
+
+#tests
+
+#CI
+
+```
